@@ -8,10 +8,15 @@ export const getFilteredTrips = ({trips, filters}) => {
   // filter by search phrase
   if(filters.searchPhrase){
     const pattern = new RegExp(filters.searchPhrase, 'i');
-    output = output.filter(trip => pattern.test(trip.name));
+    output = output.filter((trip) => pattern.test(trip.name));
   }
 
   // TODO - filter by duration
+  
+  output = output.filter(
+    (trip) =>
+      trip.days
+  );
 
   // TODO - filter by tags
 
@@ -24,6 +29,7 @@ export const getTripById = ({trips}, tripId) => {
   const filtered = trips;
 
   // TODO - filter trips by tripId
+
 
   console.log('filtering trips by tripId:', tripId, filtered);
   return filtered.length ? filtered[0] : {error: true};
