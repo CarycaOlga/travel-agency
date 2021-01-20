@@ -20,7 +20,7 @@ class TripListOptions extends React.Component {
 
   handleDuration(type, value){
     console.log('Changing duration', type, value);
-    this.props.changeDuration({type: type, value: value});
+    this.props.changeDuration({name: type, value: value});
     // TODO - use action dispatcher from props
   }
 
