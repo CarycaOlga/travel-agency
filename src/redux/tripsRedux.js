@@ -31,13 +31,13 @@ export const getFilteredTrips = ({trips, filters}) => {
   return output;
 };
 
-/*export const getTripById = ({trips}, tripId) => {
-  trips = trips.find((trip) => tripId == trip.id);
-};*/
+export const getTripById = ({trips}, tripId) => {
+  return trips.find((trip) => tripId == trip.id);
+};
 
-/*export const getTripsForCountry = ({trips}, countryCode) => {
-  trips= trips.filter((trip) => trip.country.code == countryCode);
-};*/
+export const getTripsForCountry = ({trips}, countryCode) => {
+  return trips.filter((trip) => trip.country.code == countryCode);
+};
 
 /* ACTIONS */
 
