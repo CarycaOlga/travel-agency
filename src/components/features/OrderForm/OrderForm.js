@@ -1,4 +1,4 @@
-/*import React from 'react';
+import React from 'react';
 import OrderSummary from '../OrderSummary/OrderSummary';
 // import style from './OrderForm.scss';
 import PropTypes from 'prop-types';
@@ -16,7 +16,7 @@ const OrderForm = (props) => (
 OrderForm.propTypes = {
   cost: PropTypes.string,
   tripCost: PropTypes.string,
-  optionsOrder: PropTypes.node,
+  optionsOrder: PropTypes.object,
 };
 
-export default OrderForm;*/
+export default OrderForm;
