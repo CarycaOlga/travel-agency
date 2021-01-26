@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './OrderOption.scss';
-//import OrderOptionCheckboxes from './OrderOptionCheckboxes';
+import OrderOptionCheckboxes from './OrderOptionCheckboxes';
 //import OrderOptionIcons from './OrderOptionIcons';
 import OrderOptionDropdown from './OrderOptionDropdown';
 import OrderOptionNumber from './OrderOptionNumber';
@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 const optionTypes = {
   dropdown: OrderOptionDropdown,
   //icons: OrderOptionIcons,
-  //checkboxes: OrderOptionCheckboxes,
+  checkboxes: OrderOptionCheckboxes,
   number: OrderOptionNumber,
 };
 
