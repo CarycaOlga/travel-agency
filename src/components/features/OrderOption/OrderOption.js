@@ -1,19 +1,19 @@
 import React from 'react';
 import styles from './OrderOption.scss';
-import OrderOptionCheckboxes from './OrderOptionCheckboxes';
-import OrderOptionIcons from './OrderOptionIcons';
+//import OrderOptionCheckboxes from './OrderOptionCheckboxes';
+//import OrderOptionIcons from './OrderOptionIcons';
 import OrderOptionDropdown from './OrderOptionDropdown';
 import OrderOptionNumber from './OrderOptionNumber';
 import PropTypes from 'prop-types';
 
 const optionTypes = {
   dropdown: OrderOptionDropdown,
-  icons: OrderOptionIcons,
-  checkboxes: OrderOptionCheckboxes,
+  //icons: OrderOptionIcons,
+  //checkboxes: OrderOptionCheckboxes,
   number: OrderOptionNumber,
 };
 
-const OrderOption = ({name, type, id, setOrderOption, ...otherProps}) => {
+const OrderOption = ({name, type, id, setOrderOption, currentValue, ...otherProps}) => {
   const OptionComponent = optionTypes[type];
   if(!OptionComponent){
     return null;
@@ -23,6 +23,7 @@ const OrderOption = ({name, type, id, setOrderOption, ...otherProps}) => {
         <h3 className={styles.title}>{name}</h3>
         <OptionComponent
           {...otherProps}
+          currentValue={currentValue}
           setOptionValue={value => setOrderOption({[id]: value})}
         />
       </div>
