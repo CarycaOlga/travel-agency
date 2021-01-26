@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './OrderOption.scss';
 import ProtoTypes from 'prop-types';
 
-const OrderOptionDropdown = ({required, currentValue, setOptionValue}) => (
+const OrderOptionNumber = ({required, currentValue, setOptionValue}) => (
   <input
     className={styles.inputSmall}
     value={currentValue}
@@ -13,10 +13,10 @@ const OrderOptionDropdown = ({required, currentValue, setOptionValue}) => (
   </input>
 );
 
-OrderOptionDropdown.propTypes = {
+OrderOptionNumber.propTypes = {
   required: ProtoTypes.any,
   currentValue: ProtoTypes.any,
   setOptionValue: ProtoTypes.any,
 };
 
-export default OrderOptionDropdown;
+export default OrderOptionNumber;
