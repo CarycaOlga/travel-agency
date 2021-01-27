@@ -1,13 +1,23 @@
-import React, {useState} from 'react';
+import React from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
+import ProtoTypes from 'prop-types';
 
-const OrderOptionDate = () => {
-  const [startDate, setStartDate] = useState(new Date());
+const OrderOptionDate = ({currentValue, setOptionValue}) => {
   return (
-    <DatePicker dateFormat="dd/MM/yyyy" selected={startDate} onChange={date => setStartDate(date)}
-      showWeekNumbers />
+    <div>
+      <DatePicker 
+        dateFormat="dd/MM/yyyy" 
+        selected={currentValue} 
+        onChange={setOptionValue}
+        showWeekNumbers />
+    </div>
   );
+};
+
+OrderOptionDate.propTypes = {
+  currentValue: ProtoTypes.any,
+  setOptionValue: ProtoTypes.any,
 };
 
 
