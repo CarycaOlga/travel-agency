@@ -5,26 +5,26 @@ import TripSummary from './TripSummary';
 describe ('Component TripSummary', () => {
   it('should generate link to correct address', () => {
     const expectedId = 'navy';
-    const component = shallow(<TripSummary id={expectedId}/>);
-    expect(component).toBeTruthy();
+    const component = shallow(<TripSummary id={expectedId} tags={[]}/>);
+    expect(component.find('Link').prop('to')).toEqual('/trip/' + expectedId);
   });
   it('should have correct src and alt to <img>', () => {
     const expectedSrc = 'img.jpg';
     const expectedAlt = 'imgAlt';
-    const component = shallow(<TripSummary image={expectedSrc} name={expectedAlt} />);
+    const component = shallow(<TripSummary image={expectedSrc} name={expectedAlt} tags={[]}/>);
   
-    expect(component.find('.img').prop('src')).toEqual(expectedSrc);
-    expect(component.find('.img').prop('alt')).toEqual(expectedAlt);
+    expect(component.find('img').prop('src')).toEqual(expectedSrc);
+    expect(component.find('img').prop('alt')).toEqual(expectedAlt);
   });
   it('should render name, cost and days props correctly', () => {
     const expectedName = 'strings';
     const expectedCost = '18,50';
     const expectedDays = 6;
-    const component = shallow(<TripSummary name={expectedName} cost={expectedCost} days={expectedDays} />);
+    const component = shallow(<TripSummary name={expectedName} cost={expectedCost} days={expectedDays} tags={[]} />);
     
-    expect(component.find('.title').text()).toEqual(expectedName);
-    expect(component.find('.span').first().text()).toEqual(`${expectedDays} days`);
-    expect(component.find('.span').at(1).text()).toEqual(`from ${expectedCost}`);
+    expect(component.find('h3').text()).toEqual(expectedName);
+    expect(component.find('span').first().text()).toEqual(`${expectedDays} days`);
+    expect(component.find('span').at(1).text()).toEqual(`from ${expectedCost}`);
 
   });
   it('should induce error in case of lack of id, image, name, cost or days props', () => {
@@ -38,6 +38,7 @@ describe ('Component TripSummary', () => {
     expect(component.find('.tags span').at(2).text()).toEqual(tags[2]);
   });
   it('should crashed if tags is not exist or is empty array', () => {
-    
+    const component = shallow(<TripSummary tags={[]}/>);
+    expect(component.hasClass('tags')).toBe(false);
   });
 });
