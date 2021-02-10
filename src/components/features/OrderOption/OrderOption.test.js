@@ -15,9 +15,9 @@ describe ('Component OrderOption', () => {
   });
   it('should show name prop in title', () => {
     const expectedName='showMen';
-    const component= shallow(<OrderOption name={expectedName} type='input'/>);
+    const component= shallow(<OrderOption name={expectedName} type='text'/>);
 
-    expect(component.find('h3.title').text()).toEqual(expectedName);
+    expect(component.find('h3').text()).toEqual(expectedName);
   });
 });
 
