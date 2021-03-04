@@ -9,7 +9,7 @@ import OrderOption from '../OrderOption/OrderOption';
 import Button from '../../common/Button/Button';
 import {formatPrice} from '../../../utils/formatPrice';
 import {calculateTotal} from '../../../utils/calculateTotal';
-import {settings} from '../../../data/settings';
+import settings from '../../../data/settings';
 
 const sendOrder = (options, tripCost, countryId, countryName, countryCode) => {
   const totalCost = formatPrice(calculateTotal(tripCost, options));
