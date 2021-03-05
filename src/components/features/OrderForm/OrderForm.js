@@ -2,7 +2,7 @@ import React from 'react';
 import OrderSummary from '../OrderSummary/OrderSummary';
 // import style from './OrderForm.scss';
 import PropTypes from 'prop-types';
-import {Row, Col} from 'react-flexbox-grid'; 
+import {Row, Col} from 'react-flexbox-grid';
 import pricing from '../../../data/pricing.json';
 import OrderOption from '../OrderOption/OrderOption';
 //import {setOrderOption} from '../../../redux/orderRedux';
@@ -11,20 +11,20 @@ import {formatPrice} from '../../../utils/formatPrice';
 import {calculateTotal} from '../../../utils/calculateTotal';
 import settings from '../../../data/settings';
 
-const sendOrder = (options, tripCost, countryId, countryName, countryCode) => {
+const sendOrder = (options, tripCost, tripName, countryCode, tripId) => {
   const totalCost = formatPrice(calculateTotal(tripCost, options));
 
   if ((options.name == '') || (options.contact == '')) {
     window.alert('Please fill name and contact form');
   }else {
     const payload = {
-      countryId,
-      countryName,
+      tripId,
+      tripName,
       countryCode,
       ...options,
       totalCost,
     };
-  
+
 
     const url = settings.db.url + '/' + settings.db.endpoint.orders;
 
@@ -46,7 +46,7 @@ const sendOrder = (options, tripCost, countryId, countryName, countryCode) => {
   }
 };
 
-const OrderForm = ({optionsOrder, setOrderOption, tripCost, countryName, countryCode, countryId}) => (
+const OrderForm = ({optionsOrder, setOrderOption, tripCost, tripName, countryCode, tripId}) => (
   <Row>
     {pricing.map(item => (
       <Col md={4} key={item.id}>
@@ -58,9 +58,9 @@ const OrderForm = ({optionsOrder, setOrderOption, tripCost, countryName, country
       </Col>
     ))}
     <Col xs={12}>
-      <OrderSummary tripCost={tripCost} orderOption={optionsOrder}/> 
+      <OrderSummary tripCost={tripCost} orderOption={optionsOrder}/>
     </Col>
-    <Button onClick={() => sendOrder(optionsOrder, tripCost, countryName, countryCode, countryId)}>Order Now!</Button>
+    <Button onClick={() => sendOrder(optionsOrder, tripCost, tripName, countryCode, tripId)}>Order Now!</Button>
   </Row>
 
 );
@@ -70,8 +70,8 @@ OrderForm.propTypes = {
   tripCost: PropTypes.string,
   optionsOrder: PropTypes.object,
   setOrderOption: PropTypes.func,
-  countryName: PropTypes.string,
-  countryId: PropTypes.string,
+  tripName: PropTypes.string,
+  tripId: PropTypes.string,
   countryCode: PropTypes.string,
 };
 
