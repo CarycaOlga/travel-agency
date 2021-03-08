@@ -129,6 +129,23 @@
       "start-date": "2021-04-02T22:00:00.000Z",
       "totalCost": "$188,933",
       "id": 8
+    },
+    {
+      "tripId": "5cc1d10181a30e85c8d9ad4a",
+      "tripName": "Pleasant trek in outstanding Togo",
+      "countryCode": "TGO",
+      "car-rental": "full",
+      "accommodation": "suite",
+      "features": [
+        "kitchen"
+      ],
+      "adults": "4",
+      "children": "3",
+      "name": "hygjyhfh",
+      "contact": "ujygtuk",
+      "start-date": "2021-04-01T22:00:00.000Z",
+      "totalCost": "$167,304",
+      "id": 9
     }
   ]
 }

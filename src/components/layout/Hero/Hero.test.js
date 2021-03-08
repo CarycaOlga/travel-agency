@@ -2,6 +2,7 @@ import React from 'react';
 import {shallow} from 'enzyme';
 import Hero from './Hero';
 
+
 describe('Component Hero', () => {
   it('should render without crashing', () => {
     const component = shallow(<Hero titleText='Lorem ipsum' imageSrc='sth' />);
@@ -26,5 +27,12 @@ describe('Component Hero', () => {
     expect(component.hasClass('component')).toBe(true);
     expect(component.hasClass('small')).toBe(true);
     expect(component.hasClass('dummy')).toBe(true);
+  });
+  it('should render HappyHourAd', () => {
+    const expectedTitle = 'Lorem ipsum';
+    const expectedImage = 'image.jpg';
+    const component = shallow(<Hero titleText={expectedTitle} imageSrc={expectedImage} />);
+  
+    expect(component.find('HappyHourAd').length).toEqual(1);
   });
 });
