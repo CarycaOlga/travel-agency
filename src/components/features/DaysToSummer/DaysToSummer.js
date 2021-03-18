@@ -1,28 +1,42 @@
 import React from 'react';
-//import styles from './DaysToSummer.scss';
+import styles from './DaysToSummer.scss';
 
 class DaysToSummer extends React.Component {
-  /*getCountdownDate(){
-    const currentDate = new Date();
-    const summerStart = new Date(Date.UTC(currentDate.getUTCFullYear(), 5, 21));
-    const summerEnd = new Date(Date.UTC(currentDate.getUTCFullYear(), 8, 23));
-      
-    if(currentDate.getUTCHours() >= 12){
-      nextNoon.setUTCDate(currentDate.getUTCDate()+1);
+  getCountDownDays() {
+    const today = new Date();
+    const summerBegin = new Date(Date.UTC(today.getUTCFullYear(), 5, 21));
+    const summerEnd = new Date(Date.UTC(today.getUTCFullYear(), 8, 23));
+
+    if (
+      today.getUTCMonth() == summerEnd.getUTCMonth() &&
+      today.getUTCDate() > summerEnd.getUTCDate()
+    ) {
+      summerBegin.setUTCFullYear(summerBegin.getUTCFullYear() + 1);
     }
-      
-    return Math.round((nextNoon.getTime() - currentTime.getTime())/1000);
+
+    const oneDayMs = 1000 * 60 * 60 * 24;
+
+    const daysToSummer = Math.round(
+      (summerBegin.getTime() - today.getTime()) / oneDayMs
+    );
+
+    if (daysToSummer === 1) {
+      return '1 day to Summer!';
+    } else if (daysToSummer <= 0) {
+      return '';
+    } else {
+      return daysToSummer + ' days to Summer!';
+    }
   }
+
   render() {
-    const {titleText = 'Happy Hour starts in', promoDescription = 'Super Offer!'} = this.props;
-    const takeTime = this.getCountdownTime();
+    const daysToSummer = this.getCountDownDays();
     return (
       <div className={styles.component}>
-        <h3 className={styles.title}>{titleText}</h3>
-        <div className={styles.promoDescription}>{takeTime > 82800 ? promoDescription : formatTime(takeTime)}</div>
+        <div className={styles.description}>{daysToSummer}</div>
       </div>
     );
-  }*/
+  }
 }
 
 export default DaysToSummer;
