@@ -3,7 +3,7 @@ import {shallow} from 'enzyme';
 import DaysToSummer from './DaysToSummer';
 
 const select = {
-  description: 'description',
+  description: '.description',
 };
 
 describe ('Component DaysToSummer', () => {
