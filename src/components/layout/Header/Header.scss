@@ -47,6 +47,12 @@
 
 .contact {
   text-align: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  i {
+    padding-right: 10px;
+  }
   span {
     padding-left: $base-size;
   }
