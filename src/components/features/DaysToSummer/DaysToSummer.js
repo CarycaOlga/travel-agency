@@ -8,7 +8,6 @@ class DaysToSummer extends React.Component {
     const summerEnd = new Date(Date.UTC(today.getUTCFullYear(), 8, 23));
 
     if (
-      today.getUTCMonth() == summerEnd.getUTCMonth() &&
       today.getUTCDate() > summerEnd.getUTCDate()
     ) {
       summerBegin.setUTCFullYear(summerBegin.getUTCFullYear() + 1);
